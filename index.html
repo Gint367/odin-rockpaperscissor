@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <script src="brain.js"></script>
+</head>
+<body>
+    <h1>Rock Paper Scissor</h1>
+    <script> 
+        function playRound(playerSelection, computerSelection){
+            switch(playerSelection) {
+                case "rock":
+                    if (computerSelection === "scissor") {
+                        return "you win";
+                    }else {
+                        return "you lose";
+                    }
+                case "paper":
+                    if (computerSelection === "rock") {
+                            return "you win";
+                    }else {
+                            return "you lose";
+                    }
+                case "scissor":
+                    if (computerSelection === "paper") {
+                            return "you win";
+                    }else {
+                            return "you lose";
+                    }   
+                    
+            }
+        }
+        const playerSelection = "paper";
+        const computerSelection = getComputerChoice();
+        console.log("player choose " + playerSelection);
+        console.log("computer choose " + computerSelection);
+        console.log(playRound(playerSelection,computerSelection));
+    </script>
+</body>
+</html>
