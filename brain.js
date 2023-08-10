@@ -3,28 +3,35 @@ function getComputerChoice () {
     return choice[Math.floor(Math.random() * choice.length)]
 }
 function playRound(playerSelection, computerSelection){
-    var playerSelection = prompt("enter your hand").toLowerCase();
+    //var playerSelection = prompt("enter your hand").toLowerCase();
     var computerSelection = getComputerChoice();
     console.log("player choose " + playerSelection);
+    //document.querySelector("#outputtext").replaceWith("player choose " + playerSelection)
     console.log("computer choose " + computerSelection);
     switch(playerSelection) {
         case "rock":
             if (computerSelection === "scissor") {
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Win";
                 return "you win";
             }else {
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Lose";
                 return "you lose";
             }
         case "paper":
             if (computerSelection === "rock") {
-                    return "you win";
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Win";
+                return "you win";
             }else {
-                    return "you lose";
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Lose";
+                return "you lose";
             }
         case "scissor":
             if (computerSelection === "paper") {
-                    return "you win";
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Win";
+                return "you win";
             }else {
-                    return "you lose";
+                document.getElementById("outputtext").innerHTML = playerSelection + " vs "+ computerSelection + " : You Lose";
+                return "you lose";
             }   
             
     }
@@ -35,7 +42,7 @@ function game(){
         console.log("Round " + i);
         if (playRound() === "you win") {
             tally++;
-            console.log("you win");    
+            document.getElementById("outputtext").replaceChild("yes")
         }else{
             console.log("you lose");
         }

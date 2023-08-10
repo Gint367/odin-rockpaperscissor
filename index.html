@@ -7,9 +7,39 @@
     <script src="brain.js"></script>
 </head>
 <body>
-    <h1>Rock Paper Scissor</h1>
-    <script> 
-        game();
+    <script>
+        var tally = 0;
+        var counter = 0;
+        function updateTally(eventresult) {
+            if (eventresult === "you win") {
+                tally++;
+            }
+            document.getElementById("outputscore").innerHTML = "Round " + counter +" | Current Score: " +  tally;
+            
+            if (counter === 5){
+                
+                if (tally > counter){
+                    document.getElementById("outputscore").append(" You win")
+
+                }else{
+                    document.getElementById("outputscore").append(" You lose")
+                }
+                counter = 0;
+            }
+            counter++;
+        }
     </script>
+    <h1>Rock Paper Scissor</h1>
+    <button onclick="updateTally(playRound('rock'))">Rock</button>
+    <button onclick="updateTally(playRound('paper'))">Paper</button>
+    <button onclick="updateTally(playRound('scissor'))">Scissor</button>
+    <div class="view">
+        <p id="outputtext">
+            Welcome to the game!
+
+        </p>
+        <p id="outputscore">Current score :</p>
+    </div>
+    
 </body>
 </html>
