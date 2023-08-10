@@ -3,6 +3,10 @@ function getComputerChoice () {
     return choice[Math.floor(Math.random() * choice.length)]
 }
 function playRound(playerSelection, computerSelection){
+    var playerSelection = prompt("enter your hand").toLowerCase();
+    var computerSelection = getComputerChoice();
+    console.log("player choose " + playerSelection);
+    console.log("computer choose " + computerSelection);
     switch(playerSelection) {
         case "rock":
             if (computerSelection === "scissor") {
@@ -24,4 +28,18 @@ function playRound(playerSelection, computerSelection){
             }   
             
     }
+}
+function game(){
+    var tally = 0;
+    for (let i = 0; i < 5; i++) {
+        console.log("Round " + i);
+        if (playRound() === "you win") {
+            tally++;
+            console.log("you win");    
+        }else{
+            console.log("you lose");
+        }
+        
+    }
+    console.log("You won " + tally + " times");
 }
